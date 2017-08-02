@@ -2,8 +2,7 @@ package com.winwinteam.guruspring.springWebApp.model;
 
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Entity
 public class Publisher {
@@ -12,19 +11,11 @@ public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String publisherName;
 
-    @OneToOne(mappedBy = "publishers")
-    private Set<Book> books = new HashSet<>();
 
-    public Publisher(){
 
-    }
-
-    public Publisher(String publisherName, Set<Book> books) {
-        this.publisherName = publisherName;
-        this.books = books;
-    }
 
     public Long getId() {
         return id;
@@ -42,11 +33,7 @@ public class Publisher {
         this.publisherName = publisherName;
     }
 
-    public Set<Book> getBooks() {
-        return books;
-    }
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
+
+
 }
